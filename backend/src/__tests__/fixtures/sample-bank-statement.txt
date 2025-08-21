@@ -1,0 +1,14 @@
+Sample Bank Statement - Mock Data for Testing
+
+Date         Description                Amount     Balance
+01/15/2024   Opening Balance                      $1,000.00
+01/16/2024   Direct Deposit - Salary   $2,500.00  $3,500.00
+01/17/2024   ATM Withdrawal            -$100.00   $3,400.00
+01/18/2024   Grocery Store - ACME      -$85.50    $3,314.50
+01/19/2024   Online Transfer           -$500.00   $2,814.50
+01/20/2024   Coffee Shop               -$4.95     $2,809.55
+01/21/2024   Gas Station               -$45.00    $2,764.55
+01/22/2024   Restaurant                -$32.80    $2,731.75
+
+This is a mock bank statement file for testing purposes.
+It contains typical transaction patterns that the PDF parser should handle.
