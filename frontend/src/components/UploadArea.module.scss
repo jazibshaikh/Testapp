@@ -1,0 +1,253 @@
+@import '../styles/variables';
+
+.uploadArea {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dropzone {
+  border: 2px dashed $color-primary;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: $color-surface;
+  
+  &:hover {
+    border-color: darken($color-primary, 10%);
+    background-color: lighten($color-primary, 45%);
+  }
+  
+  &.dragActive {
+    border-color: $color-secondary;
+    background-color: lighten($color-secondary, 40%);
+    transform: scale(1.02);
+  }
+  
+  &.uploading {
+    border-color: $color-accent;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.dropzoneContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon {
+  font-size: 3rem;
+  opacity: 0.8;
+}
+
+.defaultState,
+.dragActiveState,
+.uploadingState {
+  h3 {
+    color: $color-text-primary;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+  }
+  
+  p {
+    color: $color-text-secondary;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+}
+
+.fileInfo {
+  font-size: 0.85rem !important;
+  opacity: 0.8;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background-color: lighten($color-text-secondary, 30%);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: $color-accent;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: lighten($color-error, 40%);
+  border: 1px solid lighten($color-error, 20%);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.errorIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.errorContent {
+  flex: 1;
+  
+  h4 {
+    color: darken($color-error, 10%);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+  }
+  
+  p {
+    color: darken($color-error, 5%);
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+  }
+}
+
+.tryAgainButton {
+  background-color: $color-error;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: darken($color-error, 10%);
+  }
+}
+
+.success {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: lighten($color-accent, 35%);
+  border: 1px solid lighten($color-accent, 15%);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.successIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.successContent {
+  flex: 1;
+  
+  h3 {
+    color: darken($color-accent, 20%);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+  }
+  
+  p {
+    color: darken($color-accent, 15%);
+    margin: 0 0 0.5rem 0;
+    font-size: 0.95rem;
+  }
+}
+
+.filename {
+  font-family: 'Courier New', monospace;
+  background-color: lighten($color-accent, 25%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem !important;
+  display: inline-block;
+  margin: 0.5rem 0 1rem 0 !important;
+}
+
+.downloadButtons {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.downloadButton {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  
+  &.csvButton {
+    background-color: #28a745;
+    color: white;
+    
+    &:hover {
+      background-color: darken(#28a745, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    }
+  }
+  
+  &.xlsxButton {
+    background-color: #007bff;
+    color: white;
+    
+    &:hover {
+      background-color: darken(#007bff, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
+  }
+}
+
+.newUploadButton {
+  background-color: transparent;
+  color: darken($color-accent, 15%);
+  border: 1px solid darken($color-accent, 10%);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: darken($color-accent, 5%);
+    color: white;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .uploadArea {
+    padding: 0 1rem;
+  }
+  
+  .dropzone {
+    padding: 1.5rem 1rem;
+  }
+  
+  .downloadButtons {
+    flex-direction: column;
+  }
+  
+  .downloadButton {
+    min-width: auto;
+  }
+}
